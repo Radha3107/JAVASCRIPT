@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palindrome Checker | JavaScript Experiment 4</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#141E30,#243B55);
+}
+
+.container{
+    width:420px;
+    padding:30px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    box-shadow:0 8px 25px rgba(0,0,0,.4);
+    color:white;
+    text-align:center;
+}
+
+h1{
+    margin-bottom:10px;
+    color:#00e5ff;
+}
+
+p{
+    color:#ddd;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:14px;
+    border:none;
+    outline:none;
+    border-radius:10px;
+    font-size:16px;
+    margin-bottom:18px;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#00c6ff;
+    background:linear-gradient(to right,#00c6ff,#0072ff);
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#result{
+    margin-top:25px;
+    padding:18px;
+    border-radius:12px;
+    display:none;
+}
+
+.success{
+    background:#0d652d;
+}
+
+.error{
+    background:#8b0000;
+}
+
+.info{
+    text-align:left;
+    margin-top:15px;
+    line-height:1.8;
+}
+
+.footer{
+    margin-top:20px;
+    color:#bbb;
+    font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔁 Palindrome Checker</h1>
+
+<p>Experiment 4 - Functions, Scope, Closures & Try-Catch</p>
+
+<input type="text" id="word" placeholder="Enter a word or sentence">
+
+<button onclick="checkPalindrome()">
+Check Palindrome
+</button>
+
+<div id="result"></div>
+
+<div class="footer">
+Made using JavaScript ES6 🚀
+</div>
+
+</div>
+
+<script>
+
+//=============================
+// Global Scope
+//=============================
+
+let applicationName = "Palindrome Checker";
+
+//=============================
+// Function Declaration
+//=============================
+
+function cleanText(text){
+    return text.toLowerCase().replace(/\s+/g,"");
+}
+
+//=============================
+// Function Expression
+//=============================
+
+const reverseText = function(text){
+    return text.split("").reverse().join("");
+};
+
+//=============================
+// Arrow Function
+//=============================
+
+const isPalindrome = (a,b)=> a===b;
+
+//=============================
+// Closure
+//=============================
+
+function counter(){
+
+    let count=0;
+
+    return function(){
+
+        count++;
+
+        return count;
+
+    }
+
+}
+
+const checkCount = counter();
+
+//=============================
+// Main Function
+//=============================
+
+function checkPalindrome(){
+
+try{
+
+    let input=document.getElementById("word").value;
+
+    if(input.trim()=="")
+        throw "Please enter some text.";
+
+    let original=cleanText(input);
+
+    let reversed=reverseText(original);
+
+    let result=isPalindrome(original,reversed);
+
+    let totalChecks=checkCount();
+
+    let output=document.getElementById("result");
+
+    output.style.display="block";
+
+    if(result){
+
+        output.className="success";
+
+        output.innerHTML=`
+        <h2>✅ Palindrome</h2>
+
+        <div class="info">
+        <b>Application :</b> ${applicationName}<br>
+        <b>Input :</b> ${input}<br>
+        <b>Original :</b> ${original}<br>
+        <b>Reversed :</b> ${reversed}<br>
+        <b>Total Checks :</b> ${totalChecks}
+        </div>
+        `;
+
+    }
+
+    else{
+
+        output.className="error";
+
+        output.innerHTML=`
+        <h2>❌ Not a Palindrome</h2>
+
+        <div class="info">
+        <b>Application :</b> ${applicationName}<br>
+        <b>Input :</b> ${input}<br>
+        <b>Original :</b> ${original}<br>
+        <b>Reversed :</b> ${reversed}<br>
+        <b>Total Checks :</b> ${totalChecks}
+        </div>
+        `;
+
+    }
+
+}
+
+catch(error){
+
+    let output=document.getElementById("result");
+
+    output.style.display="block";
+    output.className="error";
+
+    output.innerHTML=`
+    <h2>⚠ Error</h2>
+    <p>${error}</p>
+    `;
+
+}
+
+finally{
+
+    console.log("Program Executed Successfully.");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
