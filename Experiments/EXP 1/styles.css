@@ -1,0 +1,22 @@
+/* External CSS */
+
+.external-section {
+    padding: 30px;
+    border: 1px solid black;
+    margin: 20px 0;
+}
+
+.external-section h2 {
+    font-size: 24px;
+}
+
+.external-section p {
+    font-size: 18px;
+}
+
+.external-section button {
+    padding: 10px 20px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: 16px;
+}

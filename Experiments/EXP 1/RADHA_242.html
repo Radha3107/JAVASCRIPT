@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiment No: 1 - JavaScript Methods Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 25px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 17px;
+        }
+
+        .section {
+            padding: 20px;
+            border: 2px solid black;
+            margin: 15px 0;
+        }
+
+        .section h2 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .section p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: 2px solid black;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        #userInfo,
+        #welcomeMessage {
+            padding: 15px;
+            border: 1px solid black;
+            margin-top: 12px;
+            font-size: 16px;
+        }
+    </style>
+
+    <!-- Internal JavaScript -->
+    <script>
+        console.log("=== Internal JavaScript ===");
+        console.log("Internal JavaScript loaded successfully");
+
+        // Function using Internal JavaScript
+        function showUserInfo() {
+            var name = "Jash Chauhan";
+            var prn = "24070521242";
+            var course = "Computer Science & Engineering";
+
+            document.getElementById("userInfo").innerHTML =
+                "<strong>Name:</strong> " + name + "<br>" +
+                "<strong>PRN:</strong> " + prn + "<br>" +
+                "<strong>Course:</strong> " + course;
+
+            console.log("User Info displayed using Internal JavaScript");
+            console.log("Name: " + name);
+            console.log("PRN: " + prn);
+        }
+
+        // Function to demonstrate console methods
+        function demonstrateConsole() {
+            console.log("=== Console Methods Demo ===");
+            console.log("This is console.log()");
+            console.info("This is console.info()");
+            console.warn("This is console.warn()");
+            console.error("This is console.error()");
+            alert("Check the browser console (F12) to see different console methods!");
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Experiment No: 1</h1>
+        <p class="subtitle">Demonstrate inline, internal, and external JavaScript</p>
+
+        <!-- Section 1: Inline JavaScript -->
+        <div class="section">
+            <h2>1️⃣ Inline JavaScript</h2>
+            <p>JavaScript code written directly inside HTML element using event attributes.</p>
+            <button onclick="alert('Hello from Inline JavaScript!'); console.log('Inline JavaScript executed');">
+                Click Me (Inline JS)
+            </button>
+        </div>
+
+        <!-- Section 2: Internal JavaScript -->
+        <div class="section">
+            <h2>2️⃣ Internal JavaScript</h2>
+            <p>JavaScript code written inside &lt;script&gt; tag within the HTML document.</p>
+            <button onclick="showUserInfo();">Show User Info (Internal JS)</button>
+            <button onclick="demonstrateConsole();">Console Methods Demo</button>
+            <div id="userInfo"></div>
+        </div>
+
+        <!-- Section 3: External JavaScript -->
+        <div class="section">
+            <h2>3️⃣ External JavaScript</h2>
+            <p>JavaScript code stored in a separate .js file and linked using &lt;script src=""&gt; tag.</p>
+            <button onclick="showWelcomeMessage();">Show Welcome Message (External JS)</button>
+            <div id="welcomeMessage"></div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
