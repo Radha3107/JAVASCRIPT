@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Billing Calculator using var, let, const, template literals, and destructuring." />
+  <title>Billing Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h1>Billing Calculator</h1>
+    <p class="tagline">Experiment 02 — var, let, const, template literals, destructuring</p>
+
+    <!-- Buttons -->
+    <div class="section">
+      <div class="btn-row">
+        <button id="btn-add" class="btn">+ Add Item</button>
+        <button id="btn-calculate" class="btn btn--green">Calculate Bill</button>
+      </div>
+    </div>
+
+    <!-- Items List -->
+    <div class="section">
+      <h2>Items</h2>
+      <table id="items-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Item</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="items-body"></tbody>
+      </table>
+      <p id="empty-msg" class="empty-msg">No items added yet.</p>
+    </div>
+
+    <!-- Invoice -->
+    <div class="section" id="invoice-section" style="display:none;">
+      <h2>Invoice Summary</h2>
+      <div id="invoice-output"></div>
+      <details id="code-details">
+        <summary>View JS Concepts Used</summary>
+        <pre id="code-block"></pre>
+      </details>
+    </div>
+
+    <!-- Console -->
+    <div class="section">
+      <h2>Console Output</h2>
+      <div id="console-log" class="console-log">
+        <p class="log log--muted">// Logs appear here as you interact...</p>
+      </div>
+    </div>
+
+    <!-- Concepts Reference -->
+    <div class="section concepts-ref">
+      <h2>JS Concepts Used</h2>
+      <table class="concepts-table">
+        <tr>
+          <td><code>var</code></td>
+          <td>Function-scoped, hoisted — used for tax rate</td>
+        </tr>
+        <tr>
+          <td><code>let</code></td>
+          <td>Block-scoped, reassignable — used for subtotal & items array</td>
+        </tr>
+        <tr>
+          <td><code>const</code></td>
+          <td>Block-scoped, immutable binding — used for DOM refs & computed values</td>
+        </tr>
+        <tr>
+          <td><code>`${}`</code></td>
+          <td>Template literals — used to build invoice HTML & log messages</td>
+        </tr>
+        <tr>
+          <td><code>{ }</code></td>
+          <td>Destructuring — unpacks item & billing result objects</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
