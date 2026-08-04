@@ -1,3 +1,13 @@
+1. Experiment Title:
+
+Demonstrate Inline, Internal, and External JavaScript; Use Console Methods; Create a Webpage Showing User Information and a Welcome Message.
+
+2. Software/Tools Required:
+Visual Studio Code (or any text editor)
+Google Chrome / Microsoft Edge / Mozilla Firefox
+Windows 10/11 Operating System
+
+3. Experiment Program Code:
 ===========================InternalCSS.html=====================================
 <!DOCTYPE html>
 <html>
