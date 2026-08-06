@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Bill Calculator</title>
+    <meta name="description" content="Online shopping bill calculator">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1>Generate Invoice</h1>
+            <p>Enter the details below to calculate the final bill</p>
+        </header>
+
+        <div class="content-wrapper">
+            <section class="form-section">
+                <form id="billForm">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label for="customerName">Customer Name</label>
+                            <input type="text" id="customerName" required placeholder="John Doe">
+                        </div>
+                        <div class="input-group">
+                            <label for="mobileNumber">Mobile Number</label>
+                            <input type="tel" id="mobileNumber" required placeholder="+91 9876543210">
+                        </div>
+                        <div class="input-group">
+                            <label for="invoiceNumber">Invoice Number</label>
+                            <input type="text" id="invoiceNumber" required placeholder="INV-2023-001">
+                        </div>
+                        <div class="input-group">
+                            <label for="productName">Product Name</label>
+                            <input type="text" id="productName" required placeholder="Premium Coffee Beans">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="quantity">Quantity (in Kg)</label>
+                            <input type="number" id="quantity" step="0.01" min="0" required placeholder="2.5">
+                        </div>
+                        <div class="input-group">
+                            <label for="rate">Rate per Kg (₹)</label>
+                            <input type="number" id="rate" step="0.01" min="0" required placeholder="850">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="discount">Discount (%)</label>
+                            <input type="number" id="discount" step="0.1" min="0" max="100" required placeholder="10">
+                        </div>
+                        <div class="input-group">
+                            <label for="gst">GST (%)</label>
+                            <input type="number" id="gst" step="0.1" min="0" max="100" required placeholder="18">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="packingCharges">Packing Charges (₹)</label>
+                            <input type="number" id="packingCharges" step="0.01" min="0" required placeholder="50">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="paymentMode">Payment Mode</label>
+                            <select id="paymentMode" required>
+                                <option value="UPI">UPI</option>
+                                <option value="Card">Card</option>
+                                <option value="Cash">Cash</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" id="membership">
+                            <span class="checkmark"></span>
+                            Pro Member (Extra 5% off)
+                        </label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Calculate Bill</button>
+                </form>
+            </section>
+
+            <section class="invoice-section">
+                <div class="invoice-card glass-panel" id="invoiceCard">
+                    <div class="invoice-header">
+                        <h2>Invoice Summary</h2>
+                        <span class="badge" id="displayInvoiceNum">#INV-XXXX</span>
+                    </div>
+                    
+                    <div class="customer-info">
+                        <p><strong>To:</strong> <span id="displayCustomer">N/A</span></p>
+                        <p><strong>Phone:</strong> <span id="displayMobile">N/A</span></p>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="bill-details">
+                        <div class="bill-row">
+                            <span>Item</span>
+                            <span id="displayProduct" class="value">N/A</span>
+                        </div>
+                        <div class="bill-row">
+                            <span>Quantity</span>
+                            <span id="displayQty" class="value">0 Kg</span>
+                        </div>
+                        <div class="bill-row">
+                            <span>Rate</span>
+                            <span id="displayRate" class="value">₹0.00</span>
+                        </div>
+                        
+                        <div class="divider dashed"></div>
+                        
+                        <div class="bill-row">
+                            <span>Base Amount</span>
+                            <span id="displayBaseAmount" class="value">₹0.00</span>
+                        </div>
+                        <div class="bill-row discount">
+                            <span>Discount <span id="displayDiscountPercent"></span></span>
+                            <span id="displayDiscountAmount" class="value">- ₹0.00</span>
+                        </div>
+                        <div class="bill-row discount" id="membershipDiscountRow" style="display: none;">
+                            <span>Member Discount (5%)</span>
+                            <span id="displayMemberDiscount" class="value">- ₹0.00</span>
+                        </div>
+                        
+                        <div class="divider dashed"></div>
+                        
+                        <div class="bill-row">
+                            <span>Taxable Value</span>
+                            <span id="displayTaxableValue" class="value">₹0.00</span>
+                        </div>
+                        <div class="bill-row">
+                            <span>GST <span id="displayGstPercent"></span></span>
+                            <span id="displayGstAmount" class="value">+ ₹0.00</span>
+                        </div>
+                        <div class="bill-row">
+                            <span>Packing Charges</span>
+                            <span id="displayPacking" class="value">+ ₹0.00</span>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+                    
+                    <div class="total-section">
+                        <div class="total-row">
+                            <h3>Total Amount</h3>
+                            <h3 id="displayTotal">₹0.00</h3>
+                        </div>
+                        <p class="payment-mode-label">Paid via <span id="displayPaymentMode">UPI</span></p>
+                    </div>
+                </div>
+                
+                <div class="empty-state" id="emptyState">
+                    <div class="icon">🧾</div>
+                    <p>Fill out the form to generate the invoice</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
