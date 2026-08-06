@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATM PIN Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="atm-container">
+        <div class="atm-machine">
+            <div class="atm-screen">
+                <div class="bank-logo">SecureBank</div>
+                <div id="screen-content" class="screen-content">
+                    <p class="welcome-text">WELCOME</p>
+                    <p class="instruction">PLEASE ENTER YOUR PIN</p>
+                    <div class="pin-display" id="pin-display">
+                        <!-- Dots will appear here -->
+                    </div>
+                    <div class="message-area" id="message-area"></div>
+                </div>
+            </div>
+            
+            <div class="atm-keypad">
+                <button class="key num-key" data-val="1">1</button>
+                <button class="key num-key" data-val="2">2</button>
+                <button class="key num-key" data-val="3">3</button>
+                <button class="key action-key cancel" id="btn-cancel">CANCEL</button>
+                
+                <button class="key num-key" data-val="4">4</button>
+                <button class="key num-key" data-val="5">5</button>
+                <button class="key num-key" data-val="6">6</button>
+                <button class="key action-key clear" id="btn-clear">CLEAR</button>
+                
+                <button class="key num-key" data-val="7">7</button>
+                <button class="key num-key" data-val="8">8</button>
+                <button class="key num-key" data-val="9">9</button>
+                <button class="key action-key enter" id="btn-enter">ENTER</button>
+                
+                <button class="key empty-key"></button>
+                <button class="key num-key" data-val="0">0</button>
+                <button class="key empty-key"></button>
+                <button class="key empty-key"></button>
+            </div>
+            
+            <div class="card-slot">
+                <div class="slot-opening"></div>
+                <div class="card-indicator"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
