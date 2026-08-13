@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String & Regex Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🔤 String & Regex Analyzer</h1>
+    <p class="subtitle">
+        String Functions, Regular Expressions & Text Analysis
+    </p>
+
+    <!-- Email Validation -->
+    <div class="card">
+
+        <h2>📧 Email Validation</h2>
+
+        <input
+            type="text"
+            id="email"
+            placeholder="Enter email address">
+
+        <button onclick="validateEmail()">
+            Validate Email
+        </button>
+
+        <div class="result" id="emailResult">
+            Enter an email address.
+        </div>
+
+    </div>
+
+
+    <!-- Data Extraction -->
+    <div class="card">
+
+        <h2>🔍 Data Extraction</h2>
+
+        <textarea id="dataText">Contact us at support@example.com or admin@gmail.com.
+Call us at 9876543210 or 9123456789.</textarea>
+
+        <button onclick="extractEmails()">
+            Extract Emails
+        </button>
+
+        <button onclick="extractNumbers()">
+            Extract Phone Numbers
+        </button>
+
+        <button onclick="extractWords()">
+            Extract Words
+        </button>
+
+        <div class="result" id="extractionResult">
+            Select an option.
+        </div>
+
+    </div>
+
+
+    <!-- Text Analysis -->
+    <div class="card">
+
+        <h2>📊 Text Analysis</h2>
+
+        <textarea id="analysisText"
+        placeholder="Enter text...">JavaScript is a powerful programming language. JavaScript is widely used for web development.</textarea>
+
+        <button onclick="analyzeText()">
+            Analyze Text
+        </button>
+
+        <div class="result" id="analysisResult">
+            Enter text and click Analyze.
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
