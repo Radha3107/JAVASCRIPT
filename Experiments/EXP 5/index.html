@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart Calculator</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+background:linear-gradient(135deg,#0F2027,#203A43,#2C5364);
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+min-height:100vh;
+
+padding:20px;
+
+}
+
+.container{
+
+width:700px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+padding:30px;
+
+border-radius:20px;
+
+box-shadow:0 0 20px rgba(0,0,0,.4);
+
+color:white;
+
+}
+
+h1{
+
+text-align:center;
+
+margin-bottom:25px;
+
+}
+
+input{
+
+width:100%;
+
+padding:12px;
+
+margin:10px 0;
+
+border:none;
+
+border-radius:8px;
+
+font-size:16px;
+
+}
+
+button{
+
+width:100%;
+
+padding:12px;
+
+margin-top:10px;
+
+border:none;
+
+background:linear-gradient(to right,#00C6FF,#0072FF);
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+border-radius:8px;
+
+transition:.3s;
+
+}
+
+button:hover{
+
+transform:scale(1.03);
+
+}
+
+table{
+
+width:100%;
+
+margin-top:25px;
+
+border-collapse:collapse;
+
+}
+
+th,td{
+
+padding:10px;
+
+text-align:center;
+
+border-bottom:1px solid rgba(255,255,255,.2);
+
+}
+
+#summary{
+
+margin-top:25px;
+
+padding:20px;
+
+background:rgba(255,255,255,.1);
+
+border-radius:10px;
+
+display:none;
+
+line-height:2;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🛒 Shopping Cart Calculator</h1>
+
+<input type="text" id="product" placeholder="Product Name">
+
+<input type="number" id="price" placeholder="Price">
+
+<input type="number" id="qty" placeholder="Quantity">
+
+<button onclick="addItem()">
+Add To Cart
+</button>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Product</th>
+
+<th>Price</th>
+
+<th>Qty</th>
+
+<th>Total</th>
+
+</tr>
+
+</thead>
+
+<tbody id="cartBody">
+
+</tbody>
+
+</table>
+
+<button onclick="calculateCart()">
+Calculate Final Bill
+</button>
+
+<div id="summary"></div>
+
+</div>
+
+<script>
+
+//=========================
+// Array
+//=========================
+
+let cart=[];
+
+//=========================
+// Add Product
+//=========================
+
+function addItem(){
+
+let product=document.getElementById("product").value;
+
+let price=Number(document.getElementById("price").value);
+
+let qty=Number(document.getElementById("qty").value);
+
+if(product=="" || price<=0 || qty<=0){
+
+alert("Enter Valid Details");
+
+return;
+
+}
+
+//=========================
+// Object Handling
+//=========================
+
+const item={
+
+product,
+
+price,
+
+qty,
+
+total:price*qty
+
+};
+
+cart.push(item);
+
+// push()
+
+displayCart();
+
+document.getElementById("product").value="";
+document.getElementById("price").value="";
+document.getElementById("qty").value="";
+
+}
+
+//=========================
+// Display Cart
+//=========================
+
+function displayCart(){
+
+let body=document.getElementById("cartBody");
+
+body.innerHTML="";
+
+cart.forEach(item=>{
+
+body.innerHTML+=`
+
+<tr>
+
+<td>${item.product}</td>
+
+<td>₹${item.price}</td>
+
+<td>${item.qty}</td>
+
+<td>₹${item.total}</td>
+
+</tr>
+
+`;
+
+});
+
+}
+
+//=========================
+// Calculate
+//=========================
+
+function calculateCart(){
+
+// map()
+
+let totals=cart.map(item=>item.total);
+
+// reduce()
+
+let grandTotal=totals.reduce((sum,value)=>sum+value,0);
+
+// Discount Logic
+
+let discount=0;
+
+if(grandTotal>=5000)
+
+discount=20;
+
+else if(grandTotal>=3000)
+
+discount=15;
+
+else if(grandTotal>=1000)
+
+discount=10;
+
+let discountAmount=grandTotal*discount/100;
+
+let finalBill=grandTotal-discountAmount;
+
+// filter()
+
+let expensiveItems=cart.filter(item=>item.price>1000);
+
+document.getElementById("summary").style.display="block";
+
+document.getElementById("summary").innerHTML=`
+
+<h2>Billing Summary</h2>
+
+<b>Total Products :</b> ${cart.length}<br>
+
+<b>Grand Total :</b> ₹${grandTotal.toFixed(2)}<br>
+
+<b>Discount :</b> ${discount}%<br>
+
+<b>Discount Amount :</b> ₹${discountAmount.toFixed(2)}<br>
+
+<h2>Final Bill : ₹${finalBill.toFixed(2)}</h2>
+
+<hr>
+
+<b>Expensive Products (> ₹1000):</b>
+
+${expensiveItems.length}
+
+`;
+
+}
+
+</script>
+
+</body>
+</html>
