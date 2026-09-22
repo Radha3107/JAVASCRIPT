@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gym Admission Form</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="logo">💪</div>
+
+        <h1>FITZONE GYM</h1>
+
+        <p>GYM ADMISSION FORM</p>
+        <span>Start your fitness journey today</span>
+    </div>
+
+
+    <form id="gymForm" novalidate>
+
+        <!-- PERSONAL INFORMATION -->
+
+        <div class="section">
+
+            <h2>👤 Personal Information</h2>
+
+            <div class="form-grid">
+
+                <div class="field">
+                    <label>Full Name *</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name">
+
+                    <small id="nameError"></small>
+                </div>
+
+
+                <div class="field">
+                    <label>Email Address *</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="example@gmail.com">
+
+                    <small id="emailError"></small>
+                </div>
+
+
+                <div class="field">
+                    <label>Phone Number *</label>
+
+                    <input
+                        type="text"
+                        id="phone"
+                        maxlength="10"
+                        placeholder="10-digit mobile number">
+
+                    <small id="phoneError"></small>
+                </div>
+
+
+                <div class="field">
+                    <label>Age *</label>
+
+                    <input
+                        type="number"
+                        id="age"
+                        placeholder="Enter your age"
+                        min="16"
+                        max="80">
+
+                    <small id="ageError"></small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MEMBERSHIP -->
+
+        <div class="section">
+
+            <h2>🏋️ Membership Details</h2>
+
+            <div class="form-grid">
+
+                <div class="field">
+
+                    <label>Membership Plan *</label>
+
+                    <select id="plan">
+
+                        <option value="">
+                            Select a plan
+                        </option>
+
+                        <option value="Monthly">
+                            Monthly - ₹1,500
+                        </option>
+
+                        <option value="Quarterly">
+                            Quarterly - ₹4,000
+                        </option>
+
+                        <option value="Yearly">
+                            Yearly - ₹12,000
+                        </option>
+
+                    </select>
+
+                    <small id="planError"></small>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Preferred Start Date *</label>
+
+                    <input
+                        type="date"
+                        id="startDate">
+
+                    <small id="dateError"></small>
+
+                </div>
+
+            </div>
+
+
+            <div class="field">
+
+                <label>Fitness Goal</label>
+
+                <div class="goals">
+
+                    <label class="goal">
+                        <input type="radio" name="goal" value="Weight Loss">
+                        Weight Loss
+                    </label>
+
+                    <label class="goal">
+                        <input type="radio" name="goal" value="Muscle Gain">
+                        Muscle Gain
+                    </label>
+
+                    <label class="goal">
+                        <input type="radio" name="goal" value="Fitness">
+                        General Fitness
+                    </label>
+
+                    <label class="goal">
+                        <input type="radio" name="goal" value="Strength">
+                        Strength
+                    </label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACCOUNT SECURITY -->
+
+        <div class="section">
+
+            <h2>🔐 Account Security</h2>
+
+            <div class="form-grid">
+
+                <div class="field">
+
+                    <label>Create Password *</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Minimum 8 characters">
+
+                    <div class="strength">
+                        <div id="strengthBar"></div>
+                    </div>
+
+                    <small id="passwordError"></small>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label>Confirm Password *</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Re-enter password">
+
+                    <small id="confirmError"></small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TERMS -->
+
+        <div class="terms">
+
+            <label>
+
+                <input
+                    type="checkbox"
+                    id="terms">
+
+                I agree to the gym membership terms and conditions.
+
+            </label>
+
+            <small id="termsError"></small>
+
+        </div>
+
+
+        <button type="submit" class="submit">
+            JOIN FITZONE 💪
+        </button>
+
+        <div id="successMessage"></div>
+
+    </form>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

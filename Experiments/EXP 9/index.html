@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Preferences</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <div class="icon">⚙️</div>
+
+            <h1>User Preferences</h1>
+
+            <p>Save your theme and session preferences</p>
+        </div>
+
+        <div class="card">
+
+            <h2>🎨 Theme Settings</h2>
+
+            <p class="description">
+                Choose your preferred appearance. Your theme is
+                saved using LocalStorage.
+            </p>
+
+            <div class="theme-buttons">
+
+                <button onclick="setTheme('light')">
+                    ☀️ Light
+                </button>
+
+                <button onclick="setTheme('dark')">
+                    🌙 Dark
+                </button>
+
+            </div>
+
+            <div id="themeStatus" class="status">
+                Current theme: Dark
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>👤 Session Preference</h2>
+
+            <p class="description">
+                Enter your name. It will remain available during
+                the current browser session using SessionStorage.
+            </p>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter your name"
+            >
+
+            <button class="saveBtn" onclick="saveSession()">
+                Save Session
+            </button>
+
+            <div id="sessionStatus" class="status">
+                No session name saved.
+            </div>
+
+        </div>
+
+
+        <div class="card storage-card">
+
+            <h2>💾 Storage Information</h2>
+
+            <div class="storage-row">
+                <span>LocalStorage</span>
+                <span class="badge">Theme Preference</span>
+            </div>
+
+            <div class="storage-row">
+                <span>SessionStorage</span>
+                <span class="badge">User Name</span>
+            </div>
+
+        </div>
+
+
+        <button class="clearBtn" onclick="clearPreferences()">
+            🗑️ Clear Preferences
+        </button>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student JSON Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+
+    <div class="page">
+
+        <header>
+
+            <div class="brand">
+                <div class="brand-icon">J</div>
+
+                <div>
+                    <h1>JSON<span>View</span></h1>
+                    <p>Student Data Dashboard</p>
+                </div>
+            </div>
+
+            <div class="header-tag">
+                LIVE DATA
+            </div>
+
+        </header>
+
+
+        <main>
+
+            <section class="hero">
+
+                <div>
+                    <p class="eyebrow">EXPERIMENT 10</p>
+
+                    <h2>
+                        Student
+                        <span>Records</span>
+                    </h2>
+
+                    <p class="hero-text">
+                        Load JSON data using modern JavaScript
+                        and jQuery, then display it dynamically.
+                    </p>
+                </div>
+
+                <div class="hero-symbol">
+                    { }
+                </div>
+
+            </section>
+
+
+            <section class="action-area">
+
+                <div class="action-card">
+
+                    <div class="action-number">01</div>
+
+                    <div>
+                        <h3>Fetch API</h3>
+
+                        <p>
+                            Load JSON using JavaScript
+                            <code>fetch()</code>
+                        </p>
+                    </div>
+
+                    <button onclick="loadUsingFetch()">
+                        Load Data →
+                    </button>
+
+                </div>
+
+
+                <div class="action-card">
+
+                    <div class="action-number">02</div>
+
+                    <div>
+                        <h3>jQuery</h3>
+
+                        <p>
+                            Load JSON using
+                            <code>$.getJSON()</code>
+                        </p>
+                    </div>
+
+                    <button onclick="loadUsingJSON()">
+                        Load Data →
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <div id="status">
+                <span class="status-dot"></span>
+                Ready to load student data
+            </div>
+
+
+            <section class="data-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <p class="eyebrow">DATABASE</p>
+
+                        <h2>Student Directory</h2>
+                    </div>
+
+                    <div class="record-count" id="recordCount">
+                        0 Records
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ID</th>
+                                <th>STUDENT</th>
+                                <th>EMAIL</th>
+                                <th>COURSE</th>
+                                <th>MARKS</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="dataTable">
+
+                            <tr class="empty-row">
+
+                                <td colspan="5">
+                                    Click a loading method above
+                                    to display the JSON records.
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <footer>
+            JSON Data Processing • JavaScript & jQuery
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

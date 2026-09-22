@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Krishna Shivhare",
+        "email": "krishna@gmail.com",
+        "course": "Computer Science",
+        "marks": 88
+    },
+    {
+        "id": 2,
+        "name": "Aarav Sharma",
+        "email": "aarav@gmail.com",
+        "course": "Information Technology",
+        "marks": 92
+    },
+    {
+        "id": 3,
+        "name": "Priya Patil",
+        "email": "priya@gmail.com",
+        "course": "Computer Science",
+        "marks": 85
+    },
+    {
+        "id": 4,
+        "name": "Aditya Joshi",
+        "email": "aditya@gmail.com",
+        "course": "Artificial Intelligence",
+        "marks": 90
+    },
+    {
+        "id": 5,
+        "name": "Sneha Kulkarni",
+        "email": "sneha@gmail.com",
+        "course": "Data Science",
+        "marks": 87
+    }
+]

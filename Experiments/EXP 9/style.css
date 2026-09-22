@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    padding: 50px 20px;
+
+    transition:
+        background 0.3s,
+        color 0.3s;
+}
+
+
+/* =========================
+   DARK THEME
+========================= */
+
+body.dark {
+    background:
+        radial-gradient(
+            circle at top left,
+            #312e81,
+            transparent 30%
+        ),
+        #09090b;
+
+    color: #f4f4f5;
+}
+
+
+/* =========================
+   LIGHT THEME
+========================= */
+
+body.light {
+    background:
+        linear-gradient(
+            135deg,
+            #eef2ff,
+            #f8fafc
+        );
+
+    color: #18181b;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: min(850px, 100%);
+
+    margin: auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    text-align: center;
+
+    padding: 25px 20px 35px;
+}
+
+.icon {
+    font-size: 45px;
+
+    margin-bottom: 10px;
+}
+
+.header h1 {
+    font-size: 36px;
+
+    letter-spacing: 1px;
+}
+
+.header p {
+    margin-top: 10px;
+
+    opacity: 0.65;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.card {
+    padding: 28px;
+
+    margin-bottom: 20px;
+
+    border-radius: 18px;
+
+    border: 1px solid;
+
+    transition:
+        background 0.3s,
+        border 0.3s;
+}
+
+.dark .card {
+    background: rgba(24, 24, 27, 0.9);
+
+    border-color: #27272a;
+}
+
+.light .card {
+    background: white;
+
+    border-color: #e4e4e7;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.card h2 {
+    margin-bottom: 8px;
+}
+
+.description {
+    opacity: 0.65;
+
+    margin-bottom: 20px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.theme-buttons {
+    display: flex;
+
+    gap: 12px;
+}
+
+button {
+    border: none;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    background: #4f46e5;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+input {
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #71717a;
+
+    font-size: 15px;
+
+    margin-bottom: 12px;
+
+    outline: none;
+}
+
+.dark input {
+    background: #18181b;
+
+    color: white;
+}
+
+.light input {
+    background: #fafafa;
+
+    color: #18181b;
+}
+
+input:focus {
+    border-color: #6366f1;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    margin-top: 18px;
+
+    padding: 12px 15px;
+
+    border-radius: 9px;
+
+    background: rgba(99, 102, 241, 0.1);
+
+    color: #818cf8;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   STORAGE INFO
+========================= */
+
+.storage-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+
+.storage-row:last-child {
+    border-bottom: none;
+}
+
+.badge {
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(99, 102, 241, 0.12);
+
+    color: #6366f1;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   SAVE BUTTON
+========================= */
+
+.saveBtn {
+    width: 100%;
+}
+
+
+/* =========================
+   CLEAR BUTTON
+========================= */
+
+.clearBtn {
+    width: 100%;
+
+    margin-top: 5px;
+
+    background: #dc2626;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 12px;
+    }
+
+    .header h1 {
+        font-size: 28px;
+    }
+
+    .theme-buttons {
+        flex-direction: column;
+    }
+
+    .theme-buttons button {
+        width: 100%;
+    }
+
+    .storage-row {
+        gap: 10px;
+    }
+}
